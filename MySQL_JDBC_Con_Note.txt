@@ -1,0 +1,30 @@
+Step to implement JDBC connection in Java:
+-> download the mysql DB, here i have installed "mysql-installer-web-community-8.0.1.0-dmr.msi" and installed it.
+(things to take care while installing, rember userName, Password and port on which DB is running as it require to connect with the db from application)
+-> download the java connector/driver to connect java application with DB "mysl-connector-java-6.0.4.jar"
+(Here things to take care, generally you may face compatible with between connector and Underneath DB you are using. Here no can help but google)
+-> add the connector to the lib folder of the application or add it to the build path.
+-> add the following line of the code in java main file to connect with the DB
+
+		try {
+			Connection con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "password");
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery("select * from test");
+			System.out.println("connection established successfully");
+			System.out.println("Please find the below data from test table:");
+			while(rs.next()){
+				System.out.println("vaue in rs:\n ID:"+rs.getInt(1)+" emailId: "+rs.getString(2) + " Name: "+rs.getString(3));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+Q) what are the different type of statement in JDBC?
+Ans:
+There are 3 types of Statements, as given below:
+	1) Statement:
+	-> It can be used for general-purpose access to the database. It is useful when you are using static SQL statements at runtime. 
+	2)PreparedStatement:
+	-> It can be used when you plan to use the same SQL statement many times. The PreparedStatement interface accepts input parameters at runtime. 
+	3) CallableStatement:
+	-> CallableStatement can be used when you want to access database stored procedures.
