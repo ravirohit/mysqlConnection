@@ -1,4 +1,4 @@
-Step to implement JDBC connection in Java:
+Step to implement MySQL JDBC connection in Java:
 -> download the mysql DB, here i have installed "mysql-installer-web-community-8.0.1.0-dmr.msi" and installed it.
 (things to take care while installing, rember userName, Password and port on which DB is running as it require to connect with the db from application)
 -> download the java connector/driver to connect java application with DB "mysl-connector-java-6.0.4.jar"
